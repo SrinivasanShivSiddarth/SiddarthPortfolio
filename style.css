@@ -436,6 +436,11 @@ h2 {
     font-size: 14px;
 }
 
+.skill:hover {
+    transform: scale(1.08);
+    transition: 0.3s;
+}
+
 .about {
     display: flex;
     align-items: center;
