@@ -1,0 +1,823 @@
+/* Base styles for elements before they come into view */
+.fade-in-init {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* This class will be added by JavaScript when element comes into view */
+.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optimize animations for better performance */
+.fade-in-init, .fade-in-active {
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+/* Keep the rest of your CSS unchanged */
+/* For the hero section, ensure it's visible on page load */
+.hero .fade-in-init {
+    transition-delay: 0.3s; /* Small delay for hero elements to ensure they animate on page load */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --apple-gray: #f5f5f7;
+    --apple-text: #1d1d1f;
+    --apple-blue: #0071e3;
+    --apple-light-gray: #86868b;
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    background-color: white;
+    color: var(--apple-text);
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 21px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--apple-text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--apple-blue);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-color: var(--apple-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Minimalist shapes styling */
+.shapes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.rectangle {
+    border-radius: 3px;
+}
+
+/* Ensure text is above shapes */
+.hero h1, .hero p, .hero .cta {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 28px;
+    color: var(--apple-light-gray);
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.cta {
+    background-color: var(--apple-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 400;
+    transition: all 0.3s;
+}
+
+.cta:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+}
+
+section {
+    max-width: 980px;
+    margin: 100px auto;
+    padding: 0 22px;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --apple-gray: #f5f5f7;
+    --apple-text: #1d1d1f;
+    --apple-blue: #0071e3;
+    --apple-light-gray: #86868b;
+}
+
+  @keyframes fadeInText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+body {
+    background-color: white;
+    color: var(--apple-text);
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 21px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--apple-text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--apple-blue);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background-color: var(--apple-gray);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Minimalist shapes styling */
+.shapes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.1;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.rectangle {
+    border-radius: 3px;
+}
+
+/* Ensure text is above shapes */
+.hero h1, .hero p, .hero .cta {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 28px;
+    color: var(--apple-light-gray);
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.cta {
+    background-color: var(--apple-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 400;
+    transition: all 0.3s;
+}
+
+.cta:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+}
+
+section {
+    max-width: 980px;
+    margin: 100px auto;
+    padding: 0 22px;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 24px;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: var(--apple-light-gray);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.awards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .award {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .award:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .award img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .award-info {
+    padding: 24px;
+  }
+  
+  .award-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .award-info p {
+    color: var(--apple-light-gray);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill {
+    background-color: var(--apple-gray);
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--apple-light-gray);
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--apple-blue);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button {
+    background-color: var(--apple-blue);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 980px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0077ed;
+}
+
+footer {
+    background-color: var(--apple-gray);
+    padding: 40px 22px;
+    text-align: center;
+}
+
+footer p {
+    color: var(--apple-light-gray);
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: var(--apple-text);
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--apple-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+    
+    .hero p {
+        font-size: 22px;
+    }
+    
+    .about {
+        flex-direction: column;
+    }
+    
+    h2 {
+        font-size: 36px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* Education Section Styling */
+.education-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.education-item {
+    background-color: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.education-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+.education-year {
+    background-color: var(--apple-blue);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 980px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.education-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.plus-icon {
+    position: relative;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+.plus-icon:before,
+.plus-icon:after {
+    content: '';
+    position: absolute;
+    background-color: var(--apple-blue);
+    transition: transform 0.3s ease;
+}
+
+.plus-icon:before {
+    top: 6px;
+    left: 0;
+    width: 14px;
+    height: 2px;
+}
+
+.plus-icon:after {
+    top: 0;
+    left: 6px;
+    width: 2px;
+    height: 14px;
+}
+
+.education-item.active .plus-icon:after {
+    transform: rotate(90deg);
+}
+
+.education-details {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.education-item.active .education-details {
+    max-height: 300px;
+    padding: 0 25px 20px;
+}
+
+/* Apply Apple's text styling to education details */
+.education-details p {
+    margin: 8px 0;
+    color: var(--apple-light-gray);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .education-header {
+        flex-wrap: wrap;
+    }
+    
+    .education-year {
+        margin-bottom: 8px;
+    }
+    
+    .education-header h3 {
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Theme Toggle Button Styles */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #theme-toggle img {
+    width: 49px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+  
+  #theme-toggle:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Dark Theme Variables */
+  [data-theme="dark"] {
+    --apple-gray: #1a1a1a;
+    --apple-text: #f5f5f7;
+    --apple-blue: #0a84ff;
+    --apple-light-gray: #a1a1a6;
+    background-color: #121212;
+  }
+  
+  /* Dark Theme Overrides */
+  [data-theme="dark"] header {
+    background-color: rgba(18, 18, 18, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  [data-theme="dark"] nav ul li a {
+    background-color: #121212;
+    color: var(--apple-text);
+  }
+  
+  [data-theme="dark"] .hero {
+    background-color: #121212;
+  }
+  
+  [data-theme="dark"] .skill {
+    background-color: #2c2c2e;
+  }
+  
+  [data-theme="dark"] .project, 
+  [data-theme="dark"] .award,
+  [data-theme="dark"] .education-item {
+    background-color: #1c1c1e;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  [data-theme="dark"] .project:hover,
+  [data-theme="dark"] .award:hover,
+  [data-theme="dark"] .education-item:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  [data-theme="dark"] input, 
+  [data-theme="dark"] textarea {
+    background-color: #1c1c1e;
+    border-color: #3a3a3c;
+    color: var(--apple-text);
+  }
+  
+  [data-theme="dark"] footer {
+    background-color: #1a1a1a;
+  }
+  
+  [data-theme="dark"] .shape {
+    opacity: 0.2;
+  }
+  /* Fix for dark mode background on all sections */
+[data-theme="dark"] body {
+    background-color: #121212;
+    color: var(--apple-text);
+  }
+  
+  [data-theme="dark"] section {
+    background-color: #121212;
+  }
+  
+  [data-theme="dark"] .contact-form {
+    background-color: #121212;
+  }
+  
+  /* Ensure section content maintains proper contrast */
+  [data-theme="dark"] h2,
+  [data-theme="dark"] h3 {
+    color: var(--apple-text);
+  }
+  
+/* Fix for dropdown plus/minus icons in dark mode - make them white */
+[data-theme="dark"] .plus-icon:before,
+[data-theme="dark"] .plus-icon:after {
+  background-color: #ffffff;
+}
+
+/* Ensure the dropdown icon has sufficient contrast */
+[data-theme="dark"] .education-header .plus-icon:before,
+[data-theme="dark"] .education-header .plus-icon:after {
+  background-color: #ffffff; /* Pure white for maximum visibility */
+}
+  /* Fix for skills section in dark mode */
+  [data-theme="dark"] .skills .skill {
+    color: var(--apple-text);
+  }
+  /* Transition for smooth theme change */
+  body, header, .hero, .skill, .project, .award, .education-item,
+  input, textarea, footer, .shape, .logo, nav ul li a, .project-info p,
+  .award-info p, .about-text p, .education-details p, footer p {
+    transition: all 0.3s ease;
+  }
